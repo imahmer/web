@@ -47,6 +47,7 @@ namespace Web
                 .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            ConfigureAuthService(services);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -75,7 +76,7 @@ namespace Web
             {
                 app.UseSpaStaticFiles();
             }
-
+            ConfigureAuth(app);
             app.UseRouting();
 
             app.UseAuthentication();
